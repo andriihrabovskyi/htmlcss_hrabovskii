@@ -1,5 +1,6 @@
 .header-elements {
     display: flex;
+    align-items: center;
     margin-top: 37px;
     margin-left: 80px;
     align-items: center;
@@ -25,7 +26,7 @@ li {
 }
 
 li:last-child {
-    margin-right: 752px;
+    margin-right: 690px;
 }
 
 p {
@@ -37,7 +38,6 @@ p {
 
 .header-sign-up {
     font-size: 16px;
-    line-height: 24px;
     color: white;
     cursor: pointer;
     background: #33A2E0;
@@ -54,22 +54,21 @@ p {
 
 .middle-elements {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 150px;
+    padding-top: 150px;
+    position:fixed;
 
 }
 h1 {
     font-size: 72px;
     font-family: 'Ramaraja', serif;
-    margin-left: 200px;
-    margin-top: 203px;
-    line-height: 80px;
-    margin-bottom: 10px;
 }
 
 .p2 {
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
-    margin-left: 200px;
     color: #9A9A9A;
     line-height: 30px;
 }
@@ -83,7 +82,6 @@ h1 {
         background: #33A2E0;
         border-radius: 6px;
         border: 0px;
-        margin-left: 200px;
         color: white;
         transition: all .3s;
         cursor: pointer;
@@ -91,7 +89,3 @@ h1 {
         .element-learn-more:hover {
             background: #145880;
         }
-.girl {
-    margin-top: 149px;
-    margin-left: 50px;
-}

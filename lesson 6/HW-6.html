@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW__6</title>
+    <style>
+        header {
+            background: rgb(103, 173, 103);
+            width: 900px;
+            height: 40px;
+            text-align: center;
+        }
+
+        .blocks {
+            display: flex;
+            width: 1200px;
+        }
+
+        .first_block {
+            width: 600px;
+        }
+
+        .second_block {
+            width: 600px;
+        }
+
+        p {
+            margin-left: 30px;
+        }
+
+        footer {
+            background: rgb(187, 186, 190);
+            width: 900px;
+            height: 35px;
+        }
+
+        .footer_buttons {
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Contact manager</h1>
+    </header>
+    <div class="blocks">
+        <div class="first_block">
+            <p>First name *<br><input type="text"></p>
+            <p>Last name*<br><input type="text"></p>
+            <p>Adress<br><textarea rows="6" cols="20" name="text"></textarea></p>
+            <p>City<br><input type="text"></p>
+            <p>State<br><select name="State">
+                    <option>Male</option>
+                    <option>Female</option>
+                </select></p>
+            <p>Zip<br><input text="text" </p>
+            <p>Home Phone<br><input type="text"></p>
+            <p>Work Phone*<br><input type="text"></p>
+            <p>Fax Number<br><input type="text"></p>
+        </div>
+        <div class="second_block">
+            <p>URL<br><input type="text"></p>
+            <p>Link Name<br><input type="text" </p>
+            <p>Email Adress<br><input type="text" </p>
+            <p>When is the best time to contact you?
+                <br><input type="radio" name="time_to_contact" value="Morning">Morning
+                <br><input type="radio" name="time_to_contact" value="Afternoon">Afternoon
+                <br><input type="radio" name="time_to_contact" value="Evening">Evening
+            </p>
+            <p>What is the best way to contact you?
+                <br><input type="checkbox" name="way_to_contact" value="Phone" checked>Phone
+                <br><input type="checkbox" name="way_to_contact" value="Email">Email
+                <br><input type="checkbox" name="way_to_contact" value="Fax">Fax
+            </p>
+            <p>Message<br><textarea rows="6" cols="20" name="text"></textarea></p>
+        </div>
+    </div>
+    <footer>
+        <p class="footer_buttons">
+            <input type="submit" name="submit" value="Submit"> 
+            <input type="reset" name="reset" value="Reset">
+        </p>
+    </footer>
+
+
+</body>
+
+</html>
