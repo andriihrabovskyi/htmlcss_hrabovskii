@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>HW_7</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2D3436;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        .header {
+            padding: 16px 0px;
+            box-shadow: 0px 2px 4px rgba(38, 50, 56, 0.16);
+        }
+
+        .header_inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header_burger,
+        .logo-mobile {
+            display: none;
+        }
+
+        .header_menu {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto 0 100px;
+        }
+
+        .header_menu-item {
+            font-size: 18px;
+            line-height: 32px;
+            color: #6C5CE7;
+            transition: all .3s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .header_menu-item:hover {
+            color: #2D3436;
+        }
+
+        .header_menu-item::after {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #FDCB6E;
+            border-radius: 50%;
+            top: 14px;
+            left: -23px;
+        }
+
+        .header_menu-item:hover:after {
+            display: none;
+        }
+
+        .header_menu-item+.header_menu-item {
+            margin-left: 45px;
+        }
+
+        .header_sign-in {
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 36px;
+            letter-spacing: 0.25px;
+            color: #FFFFFF;
+            text-shadow: 0px 2px 4px rgba(38, 50, 56, 0.16), 0px 4px 8px rgba(38, 50, 56, 0.08);
+
+            background: #6C5CE7;
+            border-radius: 999px;
+            padding: 14px 45px;
+            border: 0px;
+            cursor: pointer;
+            transition: all .3s;
+        }
+
+        .header_sign-in:hover {
+            background: #453b91;
+        }
+
+        /*cool-images*/
+
+        .cool-images {
+            background-image: url(img/background-img.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            padding-top: 85px;
+        }
+
+        .cool-images_title {
+            font-size: 96px;
+            line-height: 104px;
+            font-weight: 800;
+            text-align: center;
+            letter-spacing: -3px;
+            text-shadow: 0px 4px 0px #FFFFFF;
+            margin: 0px;
+        }
+
+        .cool-red {
+            color: #D63031;
+        }
+
+        .cool-images_text {
+            font-weight: 900;
+            font-size: 64px;
+            text-align: center;
+            letter-spacing: -1px;
+            margin-top: 16px;
+            margin-bottom: 0px;
+        }
+
+        .cool-iamges_text2 {
+            max-width: 270px;
+            font-size: 18px;
+            line-height: 32px;
+            margin: 0px;
+        }
+
+        .button_and_green-block {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-bottom: 166px;
+        }
+
+        .button_learn-more1 {
+            width: 238px;
+            padding: 16px;
+            font-size: 32px;
+            line-height: 48px;
+            letter-spacing: -0.5px;
+            color: #FFFFFF;
+            background: #6C5CE7;
+            border: 0;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+
+        .button_learn-more1:hover {
+            background: #3c3477
+        }
+
+        .green-block-text {
+            box-sizing: content-box;
+            padding: 60px 20px;
+            font-size: 22px;
+            line-height: 32px;
+            width: 360px;
+            background: #55EFC4;
+            border: 0;
+            border-radius: 999px;
+
+
+        }
+
+        /*Delivering*/
+        .delivering {
+            padding: 40px 0px;
+        }
+
+        .delivering_title {
+            font-weight: bold;
+            font-size: 32px;
+            line-height: 48px;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+        }
+
+        .delivering-text {
+            font-size: 24px;
+            line-height: 36px;
+            letter-spacing: -0.25px;
+            max-width: 935px;
+            margin-bottom: 40px;
+        }
+
+        .delivering_list {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .delivering_item {
+            max-width: 270px;
+        }
+
+        .delivery_item-img {
+            margin-bottom: 24px;
+        }
+
+        .delivering_item-title {
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 36px;
+            letter-spacing: 0.25px;
+            margin-bottom: 16px;
+        }
+
+        .delivering_item-text {
+            font-size: 18px;
+            line-height: 32px;
+        }
+
+        .button_learn-more {
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 32px;
+            letter-spacing: 0.2px;
+            color: #6C5CE7;
+            border-radius: 16px;
+            border: 1px solid #ADADAD;
+            padding: 7px 31px;
+            background: white;
+        }
+
+        .button_learn-more:hover {
+            background: rgb(236, 100, 157);
+            cursor: pointer;
+        }
+
+        /*Pricing*/
+
+        .pricing-title {
+            font-weight: 900;
+            font-size: 64px;
+            text-align: center;
+            letter-spacing: -1px;
+        }
+
+        .monthly_yearly {
+            font-size: 32px;
+            text-align: center;
+            letter-spacing: -0.5px;
+            color: #ADADAD;
+        }
+
+        .color-monthly:hover {
+            color: #6C5CE7;
+            cursor: pointer;
+            transition: all .3s;
+        }
+
+        .color-yearly:hover {
+            color: #6C5CE7;
+            cursor: pointer;
+            transition: all .3s;
+        }
+
+        .price-items {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .pussy,
+        .individual,
+        .corporate {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 32px;
+            letter-spacing: 0.2px;
+            color: #6C5CE7;
+        }
+
+        @media (max-width: 360px) {
+
+            /*HEADER*/
+            .header_logo,
+            .header_menu {
+                display: none;
+            }
+
+            .header_burger,
+            .logo-mobile {
+                display: block;
+            }
+
+            .header_burger span {
+                display: block;
+                border: 4px solid #5C5C5C;
+                width: 25px;
+                border-radius: 5px;
+                margin-bottom: 2px;
+            }
+
+            .logo-mobile {
+                margin: 0 auto 0 15px;
+            }
+
+            .header_sign-in {
+                font-size: 18px;
+                line-height: 32px;
+                letter-spacing: 0.2px;
+                border-radius: 8px;
+                padding: 8px 35px;
+                box-shadow: 0px 2px 4px rgba(38, 50, 56, 0.16), 0px 4px 8px rgba(38, 50, 56, 0.08);
+            }
+
+            /*Delivering*/
+            .delivering_title {
+                font-size: 24px;
+                line-height: 36px;
+                letter-spacing: 0.25px;
+                margin-bottom: 20px;
+            }
+
+            .delivery_title_year {
+                color: #6C5CE7;
+
+            }
+
+            .delivering_title_car {
+                display: none;
+            }
+
+            .delivering-text {
+                font-size: 18px;
+                line-height: 28px;
+                margin-bottom: 30px;
+            }
+
+            .delivering_list {
+                flex-wrap: wrap;
+            }
+
+            .delivering_item {
+                max-width: 130px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+
+            .delivery_item-img {
+                width: 53px;
+                margin-bottom: 18px;
+            }
+
+            .delivering_item-title {
+                font-size: 18px;
+                line-height: 27px;
+                letter-spacing: 0.1875px;
+            }
+
+            .delivering_item-text {
+                font-size: 13.5px;
+                line-height: 24px;
+                color: #5C5C5C;
+                margin-bottom: 8px;
+            }
+
+            .button_learn-more {
+                font-size: 11px;
+                line-height: 24px;
+                letter-spacing: 0.15px;
+                color: #6C5CE7;
+                border: 0.75px solid #ADADAD;
+                border-radius: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <div class="header_inner container">
+            <div class="header_burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <img class="logo-mobile" src="img/logo-mobile.png" alt="logo-mobile">
+
+            <a class="header_logo" href="#"><img class="header_logo-img" src="img/logo.png" alt="logo" title="logo"></a>
+            <ul class="header_menu">
+                <li class="header_menu-item"><a class="header_menu-link">How it works</a></li>
+                <li class="header_menu-item"><a class="header_menu-link">Who we are</a></li>
+                <li class="header_menu-item"><a class="header_menu-link">What we do</a></li>
+                <li class="header_menu-item"><a class="header_menu-link">Contact us</a></li>
+            </ul>
+            <button class="header_sign-in">Sign in</button>
+        </div>
+    </div>
+
+    <!--cool-images-->
+    <div class="cool-images">
+        <div class="container">
+            <div class="cool-images_inner">
+                <p class="cool-images_title">Combine <span class="cool-red">cool</span> images</p>
+                <p class="cool-images_text">To create any grid by<br> scaling and resizing</p>
+                <p class="cool-iamges_text2">Use mixed grid with imagery, replace with your own photos and descriptions
+                </p>
+                <div class="button_and_green-block"><button class="button_learn-more1">Learn More</button>
+                    <p class="green-block-text">This is multipurpose grid, it fits for portfolio, services or agency
+                        web site</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Delivering-->
+    <div class="delivering">
+        <div class="container">
+            <div class="delivering_inner">
+                <p class="delivering_title">Delivering good designs <span class="delivery_title_year">since
+                        1954<span class="delivering_title_car">🚚💨</span></span></p>
+                <p class="delivering-text">We’re the first multi-purpose design kit solutions for businesses. We
+                    help
+                    you
+                    bridge
+                    gaps between your layouts, templatehgs and developers to empower all involved.</p>
+                <ul class="delivering_list">
+                    <li class="delivering_item">
+                        <div>
+                            <img class="delivery_item-img" src="img/delivering good/support.svg" alt="Support"
+                                title="Support">
+                            <p class="delivering_item-title">Support</p>
+                            <p class="delivering_item-text">Delivering faster and more personalized support with
+                                shared
+                                screens and cool design systems for Figma</p>
+                        </div>
+                        <button class="button_learn-more"><a class="learn-more_link" href="#">Learn
+                                more</a></button>
+                    </li>
+
+                    <li class="delivering_item">
+                        <div>
+                            <img class="delivery_item-img" src="img/delivering good/sale-growth.svg" alt="Sales growth"
+                                title="Sales growth">
+                            <p class="delivering_item-title">Sales growth</p>
+                            <p class="delivering_item-text">Identify qualified customers with easy-to-use live chat
+                                messaging
+                                and AI-based Sales Bot</p>
+                        </div>
+                        <button class="button_learn-more"><a class="learn-more_link" href="#">Learn
+                                more</a></button>
+                    </li>
+
+                    <li class="delivering_item">
+                        <div>
+                            <img class="delivery_item-img" src="img/delivering good/components.svg" alt="Components"
+                                title="Components">
+                            <p class="delivering_item-title">Components</p>
+                            <p class="delivering_item-text">Delivering faster and more personalized support with
+                                shared
+                                screens and cool design systems for Figma</p>
+                        </div>
+                        <button class="button_learn-more"><a class="learn-more_link" href="#">Learn
+                                more</a></button>
+                    </li>
+
+                    <li class="delivering_item">
+                        <div>
+                            <img class="delivery_item-img" src="img/delivering good/swap-the-icon.svg"
+                                alt="Swap the icon" title="Swap the icon">
+                            <p class="delivering_item-title">Swap the icon</p>
+                            <p class="delivering_item-text">You can toggle to any icon within Instances and
+                                customize
+                                outlined
+                                stroke to more bolder or lighter</p>
+                        </div>
+                        <button class="button_learn-more"><a class="learn-more_link" href="#">Learn
+                                more</a></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--Pricing-->
+    <div class="pricing">
+        <div class="container_pricing">
+            <p class="pricing-title">Pricing</p>
+            <p class="monthly_yearly">Bill me <span class="color-monthly">• monthly</span> <span class="color-yearly">•
+                    yearly</span></p>
+            <div class="price-items">
+
+                <div class="price-item1">
+                    <p class="pussy">Like a pussy</p>
+                    <p class="free">Free / FOREVER</p>
+                    <ul class="item-list">
+                        <li class="item-list-li"> <img src="img/pricing-icon-grey.svg">Components-driven system</li>
+                        <li class="item-list-li"> <img src="img/pricing-icon-grey.svg">Sales-boosting landing pages</li>
+                        <li class="item-list-li"> <img src="img/pricing-icon-grey.svg">Awesome Feather icons pack</li>
+                    </ul>
+                </div>
+
+                <div class="price-item2">
+                    <p class="individual"><img src="img/👤 Individual.svg"></p>
+                    <p class="free">$12 / MONTH</p>
+                    <ul class="item-list">
+                        <li class="item-list-li"> <img src="img/pricing-icon-yellow.png">Components-driven system</li>
+                        <li class="item-list-li"> <img src="img/pricing-icon-yellow.png">Sales-boosting landing pages
+                        </li>
+                        <li class="item-list-li"> <img src="img/pricing-icon-yellow.png">Awesome Feather icons pack</li>
+                        <li class="item-list-li"> <img src="img/pricing-icon-yellow.png">Themed into 3 different styles
+                        </li>
+                        <li class="item-list-li"> <img src="img/pricing-icon-yellow.png">Will help to learn Figma</li>
+                    </ul>
+                </div>
+                <div class="price-item3">
+                    <p class="corporate"><img src="img/👥 Corporate.svg"></p>
+                    <p class="free">$12 / EDITOR</p>
+                    <ul class="item-list">
+                        <li class="item-list-li"> <img src="img/pricing-icon-green.png">Components-driven system</li>
+                        <li class="item-list-li"> <img src="img/pricing-icon-green.png">Sales-boosting landing pages
+                        </li>
+                        <li class="item-list-li"> <img src="img/pricing-icon-green.png">Awesome Feather icons pack</li>
+                        <li class="item-list-li"> <img src="img/pricing-icon-green.png">Themed into 3 different styles
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
